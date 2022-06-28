@@ -6,3 +6,7 @@ from .routers import global_scope #rutas el inicio
 
 from .seguro import seguro_scope #rutas del seguro
 from .personal import personal_scope #ruta del personal del laboratorio
+from .laboratorista import laboratorista_scope
+from .especialidad import especialidad_scope
+from .privilegio import privilegio_scope
+from .paciente import paciente_scope

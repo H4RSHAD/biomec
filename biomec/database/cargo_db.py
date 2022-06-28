@@ -1,5 +1,5 @@
-from ...models.entidades.Cargo import Cargo
-from ..connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
+from ..models.entidades.Cargo import Cargo
+from .connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
 
 def create(cargo: Cargo)->Cargo:
     # comment: 

@@ -1,5 +1,5 @@
 from ..models.entidades.Inventario import Inventario
-from ..database.db_entidades import inventario_db
+from ..database import inventario_db
 
 def create(inventario: Inventario)->Inventario:
     # comment: 

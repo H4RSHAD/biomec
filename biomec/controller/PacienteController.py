@@ -1,5 +1,5 @@
 from ..models.entidades.Paciente import Paciente
-from ..database.db_entidades import paciente_db
+from ..database import paciente_db
 
 def create(paciente: Paciente)->Paciente:
     # comment: 

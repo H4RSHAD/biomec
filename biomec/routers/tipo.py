@@ -5,10 +5,12 @@ from flask import Blueprint, flash, redirect, render_template, request, session,
 from ..controller import UserController
 from ..controller import PersonaController
 from ..controller import LaboratoristaController
+from ..controller import Especialidad_MedController
 # importamos los Modelos 
 from ..models.entidades.User import User 
 from ..models.entidades.Persona import Persona 
 from ..models.entidades.Laboratorista import Laboratorista
+from ..models.entidades.Especialidad_Med import Especialida_Med
 tipo_scope = Blueprint('tipo',__name__)
 
 #realizar la vista del Inicio o Home "template"
