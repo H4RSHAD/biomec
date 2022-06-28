@@ -37,4 +37,3 @@ def list_all():
         #
         seguro_lista.append(seguro_datos)
     return seguro_lista
-# end def
