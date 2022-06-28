@@ -1,5 +1,5 @@
-from ..models.entidades.Detalle_Analisis import Detalle_Analisis
-from .connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
+from ...models.entidades.Detalle_Analisis import Detalle_Analisis
+from ..connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
 
 def create(detalle_analisis: Detalle_Analisis)->Detalle_Analisis:
     # comment: 

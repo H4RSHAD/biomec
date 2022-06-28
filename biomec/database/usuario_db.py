@@ -1,3 +1,4 @@
+from flask import session
 from ..models.entidades.User import User 
 from .connection import _fetch_all,_fecth_lastrow_id,_fetch_none,_fetch_one  #las funciones 
 # usuario de tipo USER que apunta a User
@@ -24,9 +25,9 @@ def list_all(): #LISTO FUNCIONA
     usuario_lista = [] #Tupla que devolvera todos los datos de la tabla Usuario
     id_roles =['','admin','Recepcionista','Laboratorista','Paciente'] #lista de roles, el primero es vacio porque es 0
     for x in range(len(usuarios_lista)):
-        id = usuarios_lista[x][0]
+        id_user = usuarios_lista[x][0]
         nombre = usuarios_lista[x][1]
-        contraseña = usuarios_lista[x][2]
+        contraseña = str(usuarios_lista[x][2])
         id_rol = usuarios_lista[x][3]
         #Este es un ciclo para poder mostrar en string su tipo de rol y no mostrar numero
         for i in range(len(id_roles)):
@@ -35,7 +36,7 @@ def list_all(): #LISTO FUNCIONA
         id_persona= usuarios_lista[x][4]
         # Creo un diccionario con su respectivo encabezado y asigno el atributo correspondiente
         print(contraseña)
-        usuario_datos = { 'id':id, 'nombre':nombre,'contraseña':contraseña,'id_rol':id_rol,'id_persona':id_persona}
+        usuario_datos = { 'id':id_user, 'nombre':nombre,'contraseña':contraseña,'id_rol':id_rol,'id_persona':id_persona}
         # por cada interaccion lo guardo el diccionario de los datos de cada persona en la lista
         usuario_lista.append(usuario_datos)
 
