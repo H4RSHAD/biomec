@@ -19,3 +19,21 @@ def delete(especialidad_med: Especialida_Med)-> Especialida_Med:
     # comment: 
     pass
 # end def
+
+def list_all():
+    # comment: 
+    sql = "SELECT * FROM Especialida_Med ORDER BY ID DESC"
+    print(sql)
+    especialidad_lista_sql = _fetch_all(sql,None)
+
+    especialidades_lista = list(especialidad_lista_sql)
+    especialidad_lista = []
+    for x in range (len(especialidades_lista)):
+        id_especialidad  = especialidades_lista[x][0]
+        Nombre_Esp = especialidades_lista[x][1]
+        #
+        especialidad_datos = {'ID':id_especialidad, 'Nombre_Esp': Nombre_Esp}
+        #
+        especialidad_lista.append(especialidad_datos)
+    return especialidad_lista
+# end def
