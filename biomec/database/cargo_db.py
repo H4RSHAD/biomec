@@ -19,3 +19,21 @@ def delete(cargo: Cargo)-> Cargo:
     # comment: 
     pass
 # end def
+
+def list_all():
+    # comment: 
+    sql = "SELECT * FROM Cargo ORDER BY ID_Cargo DESC"
+    print(sql)
+    cargo_lista_sql = _fetch_all(sql,None)
+
+    cargos_lista = list(cargo_lista_sql)
+    cargo_lista = []
+    for x in range (len(cargos_lista)):
+        id_cargo  = cargos_lista[x][0]
+        nombre = cargos_lista[x][1]
+        #
+        cargo_datos = {'ID_Cargo':id_cargo, 'Nombre': nombre}
+        #
+        cargo_lista.append(cargo_datos)
+    return cargo_lista
+# end def
