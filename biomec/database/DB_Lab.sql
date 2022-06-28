@@ -241,7 +241,7 @@ insert into Persona values(10,'Veronica', 'Carrizales', 'Tasima',609056,'Carriza
 insert into Persona values(11,'Katherin', 'Arteaga', 'Melgar',null,'Arteaga44@hemovirtual.com','1990-10-07');
 
 --ADMIN
-insert into Persona values(12,'CRISTIAN','CUELLAR','SERRANO',78021105,'ccuellar260@gmail.com','1990-10-07');
+insert into Persona values(12,'CRISTIAN','ARAUZ','RAMIREZ',79914901,'cristhianarauz06@gmail.com','1992-12-01');
 insert into Persona values(13,'LUIS EDUARDO','CESPEDES','VARGAS',77679046,'llxxlaloxxll@gmail.com','1990-10-07');
 insert into Persona values(14,'BEBI','VARGAS','RIOS',70033034,'bbithalindaa@gmail.com','1990-10-07');
 insert into Persona values(15,'NELSON','PANIAGUA','PORRAS',79492778,'nelson95sc@gmail.com','1990-10-07');

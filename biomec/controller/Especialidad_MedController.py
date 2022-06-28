@@ -1,5 +1,5 @@
 from ..models.entidades.Especialidad_Med import Especialida_Med
-from ..database.db_entidades import especialidad_med_db
+from ..database import especialidad_med_db
 
 def create(especialidad_med: Especialida_Med)->Especialida_Med:
     # comment: 

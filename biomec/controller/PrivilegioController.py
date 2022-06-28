@@ -1,5 +1,5 @@
 from ..models.entidades.Privilegio import Privilegio
-from ..database.db_entidades import privilegios_db
+from ..database import privilegios_db
 
 def create(privilegio: Privilegio)->Privilegio:
     # comment: 

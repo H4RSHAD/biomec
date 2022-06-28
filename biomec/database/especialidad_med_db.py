@@ -1,5 +1,5 @@
-from ...models.entidades.Especialidad_Med import Especialida_Med
-from ..connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
+from ..models.entidades.Especialidad_Med import Especialida_Med
+from .connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
 
 def create(especialidad_med: Especialida_Med)->Especialida_Med:
     # comment: 
