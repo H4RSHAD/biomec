@@ -1,0 +1,69 @@
+{% extends '/base/base_dashboard.html' %}
+
+
+
+
+
+
+<!-- Aqui Creamos una tabla para mostrar todos los datos personalesl-->
+
+{% block navbars1 %}
+
+<li>
+    <a href="{{ url_for('tipo.registro_persona') }}" class="nav-link text-white">
+      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+      Registar paciente
+    </a>
+  </li>
+  <li>
+    <a href="#" class="nav-link text-white">
+      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+      Sacar Reporte
+    </a>
+  </li>
+{% endblock %}
+
+
+{% block tabla %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Aqui las columnas osea los nombres-->
+            <th scope="col">CI</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido_P</th>
+            <th scope="col">Apellido_M</th>
+            <th scope="col">Telefono</th>     
+            <th scope="col">Email</th>  
+            <th scope="col">Fecha Nacimiento</th>                          
+            <th>Editar</th> 
+            <th>Eliminar</th>                                                              
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+        </tr>
+            <!-- Aqui las filas o valores de la tabla    --> 
+        {% for item in items %}   
+        <tr>
+            <td>{{item['ci']}}</td>
+            <td>{{item['nombre']}}</td>
+            <td>{{item['apellidoP']}}</td>
+            <td>{{item['apellidoM']}}</td>
+            <td>{{item['telefono']}}</td>
+            <td>{{item['email']}}</td>
+            <td>{{item['fecha_nacimiento']}}</td>                        
+            <td>
+                <a class="btn btn-secondary" href="">Editar</a>
+
+            </td>
+            <td>
+                <a class="btn btn-secondary" href="">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}      
+    </tbody>
+</table>
+{% endblock %}
+
