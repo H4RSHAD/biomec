@@ -8,17 +8,14 @@ def create(seguro: Seguro)->Seguro:
     parametros = seguro._asdict()
     _fetch_none(sql,parametros)
     return seguro
-# end def
 
 def update(seguro: Seguro)-> Seguro:
     sql = """"update Seguro set Nro_Seguro = Nro_Seguro, Nombre_Seguro=Nombre_Seguro"""
     # comment: 
-# end def
 
 def delete(seguro: Seguro)-> Seguro:
     # comment: 
     pass
-# end def
 
 def list_all():
     # comment: 
@@ -36,4 +33,3 @@ def list_all():
         seguro_lista.append(seguro_datos)
     
     return seguro_lista
-# end def
