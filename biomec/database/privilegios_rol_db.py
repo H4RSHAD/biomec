@@ -1,5 +1,5 @@
-from ..models.entidades.Privilegio_Rol import Privilegio_Rol
-from .connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
+from ...models.entidades.Privilegio_Rol import Privilegio_Rol
+from ..connection import _fetch_all, _fecth_lastrow_id, _fetch_none,_fetch_one
 
 def create(privilegio_rol: Privilegio_Rol)->Privilegio_Rol:
     # comment: 
