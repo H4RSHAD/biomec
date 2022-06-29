@@ -5,7 +5,7 @@ load_dotenv()                   # Cargar todo el cotenido de .env en variables d
 
 class Config:
 
-    #Luis estuvo aquí
+    #Luis estuvo aquí, prueba
     # Trabajar en la nube voladora. Estamos usando Heroku, es una plataforma como servicio en la nube 
     SERVER_NAME = "biomec.herokuapp.com" # Esto es el nombre del servidor, para mostrar ONLINE 
     DEBUG = True
