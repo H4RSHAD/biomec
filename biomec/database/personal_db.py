@@ -1,5 +1,7 @@
-from ...models.entidades.Personal import Personal
-from ..connection import _fetch_all, _fecth_lastrow_id, _fetch_none, _fetch_one
+
+import email
+from ..models.entidades.Personal import Personal
+from .connection import _fetch_all, _fecth_lastrow_id, _fetch_none, _fetch_one
 
 def create(personal: Personal)->Personal:
     # comment: 
@@ -17,5 +19,30 @@ def update(personal: Personal)-> Personal:
 
 def delete(personal: Personal)-> Personal:
     # comment: 
+    
     pass
 # end def
+
+def list_all():
+    # comment: 
+    sql = "SELECT personal.id_persona, persona.nombre, persona.apellidop, persona.apellidom, persona.telefono, persona.correo, cargo.nombre FROM Personal,Persona, Cargo where id_cargo = id_crg  and id_persona =ci ORDER BY id_persona DESC"
+    print(sql)
+    personal_lista_sql = _fetch_all(sql,None)
+
+    personales_lista = list(personal_lista_sql)
+    personal_lista = []
+    for x in range (len(personales_lista)):
+        id_personal  = personales_lista[x][0]
+        nombre = personales_lista[x][1]
+        apellidop = personales_lista[x][2]
+        apellidom = personales_lista[x][3]
+        telefono = personales_lista[x][4]
+        correo = personales_lista[x][5]
+        nombre_cargo = personales_lista[x][6]
+        #
+        personal_datos = {'ID_Personal':id_personal, 'Nombre': nombre, 'ApellidoP': apellidop, 'ApellidoM': apellidom, 'Telefono': telefono, 'Correo': correo, 'Nombre_Cargo': nombre_cargo}
+        
+        personal_lista.append(personal_datos)
+        print(personal_lista)
+    
+    return personal_lista

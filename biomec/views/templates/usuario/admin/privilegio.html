@@ -20,7 +20,7 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
           <span>
-            <a href="../principal/">
+            <a href="../tipo/admin">
               <img
                 alt="image"
                 src="{{ url_for('static', filename='img/biomec.png') }}"
@@ -63,10 +63,10 @@
           <li>
             <a href="{{ url_for('tipo.usuario') }}">Visualizar Usuarios</a>
           </li>
-          <li><a href="../medico/">Gestionar Medico</a></li>
+          <li><a href="../laboratorista/">Gestionar Medico</a></li>
           <li><a href="../especialidad">Gestionar Especialidad</a></li>
           <li><a href="../privilegio/">Privilegios</a></li>
-          <li><a href="../gestionarPaciente/">Gestionar Paciente</a></li>
+          <li><a href="../paciente/">Gestionar Paciente</a></li>
         </ul>
       </li>
 
@@ -77,11 +77,11 @@
           <span class="fa arrow"></span
         ></a>
         <ul class="nav nav-second-level collapse">
-          <li><a href="../precio/">Gestionar Precio de Análisis</a></li>
-          <li><a href="../analisis/">GESTIONAR ANALISIS</a></li>
+          <!-- <li><a href="../precio/">Gestionar Precio de Análisis</a></li> -->
+          <li><a href="../l_analisis/">GESTIONAR ANALISIS</a></li>
           <li><a href="../muestra">Gestionar Muestra</a></li>
           <li><a href="../metodo">Gestionar Metodo</a></li>
-          <li><a href="../grupoAnalisis">Gestionar Grupo de Análisis</a></li>
+          <li><a href="../g_analisis">Gestionar Grupo de Análisis</a></li>
         </ul>
       </li>
 
@@ -189,7 +189,7 @@
   <h5>{{ titulo_usuario }}</h5>
   <div class="ibox-tools">
     <a class="collapse-link">
-      <i class="fa fa-chevron-up"></i>
+ <!--    -->   <i class="fa fa-chevron-up"></i>
     </a>
     <a class="close-link">
       <i class="fa fa-times"></i>
@@ -198,7 +198,7 @@
 </div>
 
 <div class="ibox-content">
-  <div class="row">
+<!--   <div class="row">
     <form
       action="javascript: fn_buscar();"
       id="frm_buscar"
@@ -326,7 +326,7 @@
         </div>
       </div>
     </form>
-  </div>
+  </div> -->
 </div>
 </div>
 </div>
@@ -342,12 +342,20 @@
           <tr>
             <!-- Aqui las columnas osea los nombres-->
             <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Contraseña</th>
-            <th scope="col">Rol</th>
-            <th scope="col">Ci personal</th>
-            <th scope="col">Editar</th>
+            <th scope="col">Descricpion</th>
+            <th>
+              Editar Datos <br />
+              (Click Aqui)
+            </th>
+
             <!-- <th scope="col">Eliminar</th> -->
+            <th>
+              <a href="javascript: fn_mostrar_frm_agregar();"
+                ><img
+                  src="{{ url_for('static', filename='extras/ico/add.png') }}"
+                  style="width: 25px; height: 25px"
+              /></a>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -355,13 +363,10 @@
           <!-- Aqui las filas o valores de la tabla    -->
           {% for item in items %}
           <tr>
-            <td>{{item['id']}}</td>
-            <td>{{item['nombre']}}</td>
-            <td>{{item['Constraseña']}}</td>
-            <td>{{item['id_rol']}}</td>
-            <td>{{item['id_persona']}}</td>
-
+            <td>{{item['ID']}}</td>
+            <td>{{item['Descripcion']}}</td>
             <td>
+              
               <a
                 href="javascript: fn_mostrar_frm_modificar({{item['id']}},{{item['nombre']}},{{item['Constraseña']}},{{item['id_rol']}},{{item['id_persona']}});"
               >
@@ -371,7 +376,11 @@
               /></a>
             </td>
             <td>
-              <!-- <a class="btn btn-secondary" href="">Eliminar</a>-->
+              <a href="javascript: fn_eliminar({{item['id']}});">
+                <img
+                  src="{{ url_for('static', filename='extras/ico/delete.png') }}"
+                  style="width: 25px; height: 25px"
+              /></a>
             </td>
           </tr>
           {% endfor %}

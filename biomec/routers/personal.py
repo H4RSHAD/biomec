@@ -4,16 +4,24 @@ from flask import Blueprint, flash, redirect, render_template, request, session,
 # importamos los controladores de Usuario
 from ..controller import UserController
 from ..controller import PersonaController
+from ..controller import PersonalController
 from ..controller import LaboratoristaController
 # importamos los Modelos 
 from ..models.entidades.User import User 
 from ..models.entidades.Persona import Persona 
+from ..models.entidades.Personal import Personal
 from ..models.entidades.Laboratorista import Laboratorista
 
 from ..routers.tipo import session # estoy importando la variable global donde se guarda la session del usuario que ingreso al sistema
+
 personal_scope = Blueprint('personal',__name__)
 
 #realizar la vista del Inicio o Home "template"
+@personal_scope.route('/personal/delete/<int:per>', methods=['GET', 'POST'])
+def delete(per):
+        if request.method =='GET':
+                print(per)
+
 @personal_scope.route('/', methods=['GET'])
 def personal():
 
@@ -28,7 +36,7 @@ def personal():
                         "titulo_usuario":"Listado del personal de la Empresa"
                 }
  
-        personas_lista = PersonaController.list()    #! implementar el modelo personal
+        personas_lista = PersonalController.list()    #! implementar el modelo personal
         print(personas_lista)
         return render_template("usuario/admin/personal.html", **parametros, items = personas_lista)
 

@@ -20,7 +20,7 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
           <span>
-            <a href="../principal/">
+            <a href="../tipo/admin">
               <img
                 alt="image"
                 src="{{ url_for('static', filename='img/biomec.png') }}"
@@ -63,10 +63,10 @@
           <li>
             <a href="{{ url_for('tipo.usuario') }}">Visualizar Usuarios</a>
           </li>
-          <li><a href="../medico/">Gestionar Medico</a></li>
+          <li><a href="../laboratorista/">Gestionar Medico</a></li>
           <li><a href="../especialidad">Gestionar Especialidad</a></li>
-          <li><a href="../privilegios/">Privilegios</a></li>
-          <li><a href="../gestionarPaciente/">Gestionar Paciente</a></li>
+          <li><a href="../privilegio/">Privilegios</a></li>
+          <li><a href="../paciente/">Gestionar Paciente</a></li>
         </ul>
       </li>
 
@@ -77,11 +77,11 @@
           <span class="fa arrow"></span
         ></a>
         <ul class="nav nav-second-level collapse">
-          <li><a href="../precio/">Gestionar Precio de Análisis</a></li>
-          <li><a href="../analisis/">GESTIONAR ANALISIS</a></li>
+          <!-- <li><a href="../precio/">Gestionar Precio de Análisis</a></li> -->
+          <li><a href="../l_analisis/">GESTIONAR ANALISIS</a></li>
           <li><a href="../muestra">Gestionar Muestra</a></li>
           <li><a href="../metodo">Gestionar Metodo</a></li>
-          <li><a href="../grupoAnalisis">Gestionar Grupo de Análisis</a></li>
+          <li><a href="../g_analisis">Gestionar Grupo de Análisis</a></li>
         </ul>
       </li>
 
@@ -308,9 +308,9 @@
                     <tr>
                       <th>Id</th>
                       <th>Nombre Completo</th>
-                      <th>Direccion</th>
                       <th>Correo Electronico</th>
                       <th>Telefono</th>
+                      <th>Cargo</th>
                       <th></th>
                       <th style="text-align: center" width="16px">
                         Agregar (Cargo)
@@ -327,15 +327,15 @@
                   <tbody>
                     {% for item in items %}
                     <tr></tr>          
-                    <td>{{item['ci']}}</td>
-                    <td>{{item['nombre']}}</td>
-                    <td>{{item['apellidoP']}}</td>
-                    <td>{{item['email']}}</td>
-                    <td>{{item['telefono']}}</td>
+                    <td>{{item['ID_Personal']}}</td>
+                    <td>{{item['Nombre']}}  {{item['ApellidoP']}} {{item['ApellidoM']}}</td>
+                    <td>{{item['Correo']}}</td>
+                    <td>{{item['Telefono']}}</td> 
+                    <td>{{item['Nombre_Cargo']}}</td> 
 
                       <td>
                         <a
-                          href="javascript: fn_mostrar_frm_modificar({{item['id']}},{{item['nombre']}},{{item['apellidoP']}},'{{item['apellidoM']}}',{{item['telefono']}},'0');"
+                          href="javascript: fn_mostrar_frm_modificar({{item['ID_Personal']}},{{item['Nombre']}},{{item['ApellidoP']}},{{item['apellidoM']}},{{item['FALTA DIRECCION']}},{{item['Correo']}},{{item['Telefono']}});"
                         >
                           <img
                             src="{{ url_for('static', filename='extras/ico/page_edit.png') }}"
@@ -350,7 +350,11 @@
                         /></a>
                       </td>
                       <td>
-                        <a href="javascript: fn_eliminar({{item['id']}});">
+                      <!--<a href="javascript: fn_eliminar({{item['id']}});">-->
+                        <form action="/personal/delete/{{item['ID_Personal']}}" method="POST">
+                          <input type = "submit" value="Eliminar">
+                      </form>
+                        <a href="/personal/delete/{{item['ID_Personal']}}">
                           <img
                             src="{{ url_for('static', filename='extras/ico/delete.png') }}"
                             style="width: 20px; height: 20px"

@@ -13,5 +13,12 @@ def update(laboratorista: Laboratorista)->Laboratorista:
 
 def delete(laboratorista: Laboratorista)->Laboratorista:
     # comment: 
+    print("*************************hola***********************")
     return laboratorista_db.delete(laboratorista)
+
+# end def
+
+def list():
+    # comment:
+    return laboratorista_db.list_all()
 # end def

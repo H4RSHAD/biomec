@@ -67,7 +67,7 @@ function redirect_by_post(purl, pparameters, in_new_tab) {
 function fn_agregar() {
     var str = $("#frm_agregar_seguro").serialize();
     $.ajax({
-        url: 'gestionar_seguro.php', data: str + '&proc=agregar', type: 'get', success: function (data) {
+        url: 'agregar_seguro', data: str + '&proc=agregar', type: 'get', success: function (data) {
             var idS = $.trim(data);
             if (!$.isNumeric(idS)) {
                 alert(data);
@@ -75,7 +75,7 @@ function fn_agregar() {
                 alert("se registro correctamente \n !!! Ahora se procedera a registrar el precio de cada uno de los Analisis que dispone el Laboratorio !!!");
                 fn_cerrar();
                 fn_buscar();
-                redirect_by_post('SeguroAnalisis.php', {idS: idS}, false);
+                redirect_by_post('seguro', {idS: idS}, false);
             }
         }
     });
@@ -86,7 +86,8 @@ function fn_eliminar(id_seguro) {
     if (respuesta) {
         $.blockUI({message: '<h3>Eliminando...</h3><br><img align="center" id="imgAjaxModif" src="../images/ajax-load.gif"><br>'});
         $.ajax({
-            url: 'gestionar_seguro.php', data: 'id_seguro=' + id_seguro, type: 'post', success: function (data) {
+            url: 'gestionar_seguro', data: 'id_seguro=' + id_seguro, type: 'post', success: function (data) {
+                
                 if (data != "") {
                     alert(data);
                 } else {
@@ -95,6 +96,7 @@ function fn_eliminar(id_seguro) {
                     fn_buscar();
                 }
             }
+            
         });
     }
 }

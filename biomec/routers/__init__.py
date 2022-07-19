@@ -10,3 +10,6 @@ from .laboratorista import laboratorista_scope
 from .especialidad import especialidad_scope
 from .privilegio import privilegio_scope
 from .paciente import paciente_scope
+from .grupo_analisis import g_analisis_scope
+from .metodo import metodo_scope
+from .l_analisis import l_analisis_scope

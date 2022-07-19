@@ -18,7 +18,7 @@ from ..models.entidades.Especialidad_Med import Especialida_Med
 from ..models.entidades.Privilegio import Privilegio
 
 from ..routers.tipo import session # estoy importando la variable global donde se guarda la session del usuario que ingreso al sistema
-especialidad_scope = Blueprint('especialista',__name__)
+especialidad_scope = Blueprint('especialidad',__name__)
 
 #realizar la vista del Inicio o Home "template"
 @especialidad_scope.route('/', methods=['GET'])
@@ -31,11 +31,11 @@ def especialidad():
                         "description": "Bienvenido(a) "+ session['username'],
                         "Nombre": session['username'],
                         "tipo": "Administrador",
-                        "titulo": "Gestionar Seguro",
-                        "titulo_usuario":"Seguros Asociados al Laboratorio"
+                        "titulo": "Gestionar Especialidad",
+                  #      "titulo_usuario":"Seguros Asociados al Laboratorio"
                 }
  
-        cargo_lista = UserController.list()    #! implementar el modelo seguro
-        return render_template("usuario/admin/especialidad.html", **parametros, items = cargo_lista)
+        especialidad = Especialidad_MedController.list()    #! implementar el modelo seguro
+        return render_template("usuario/admin/especialidad.html", **parametros, items = especialidad)
 
     return redirect(url_for('tipo.login'))

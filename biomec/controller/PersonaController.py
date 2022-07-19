@@ -28,3 +28,8 @@ def sacar_ultimo_id_persona():
 
 def get_persona(field: str, value: str) -> Persona:
     return persona_db.obtener_persona(field,value)
+
+def list():
+    # comment:
+    return persona_db.list_all()
+# end def

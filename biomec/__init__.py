@@ -8,7 +8,7 @@ from flask_wtf.csrf import CSRFProtect # para la proteccion del login, important
 
 
 # importamos las rutas con sus variablas de entorno
-from .routers import global_scope, tipo_scope, seguro_scope,personal_scope, laboratorista_scope, especialidad_scope, privilegio_scope, paciente_scope  #aqui se importa los archivos de la carpeta  =>  routers
+from .routers import global_scope, tipo_scope, seguro_scope,personal_scope, laboratorista_scope, especialidad_scope, privilegio_scope, paciente_scope, g_analisis_scope, metodo_scope, l_analisis_scope #aqui se importa los archivos de la carpeta  =>  routers
 
 
 csrf = CSRFProtect()                           # creamos una instancia para la proteccion para login   => csrf
@@ -34,3 +34,6 @@ biomec.register_blueprint(laboratorista_scope,url_prefix ="/laboratorista")
 biomec.register_blueprint(especialidad_scope,url_prefix ="/especialidad")
 biomec.register_blueprint(privilegio_scope,url_prefix ="/privilegio")
 biomec.register_blueprint(paciente_scope,url_prefix ="/paciente")
+biomec.register_blueprint(g_analisis_scope,url_prefix ="/g_analisis")
+biomec.register_blueprint(metodo_scope,url_prefix ="/metodo")
+biomec.register_blueprint(l_analisis_scope,url_prefix ="/l_analisis")

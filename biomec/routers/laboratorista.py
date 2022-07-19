@@ -22,11 +22,11 @@ def laboratorista():
                         "description": "Bienvenido(a) "+ session['username'],
                         "Nombre": session['username'],
                         "tipo": "Administrador",
-                        "titulo": "Gestionar Seguro",
+                        "titulo": "Gestionar Medico",
                         "titulo_usuario":"Seguros Asociados al Laboratorio"
                 }
  
-        cargo_lista = UserController.list()    #! implementar el modelo seguro
+        cargo_lista = LaboratoristaController.list()    #! implementar el modelo seguro
         return render_template("usuario/admin/laboratorista.html", **parametros, items = cargo_lista)
 
     return redirect(url_for('tipo.login'))

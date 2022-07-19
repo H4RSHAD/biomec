@@ -474,3 +474,32 @@ insert into Recibo_Analisis values (4040,'2022-01-15',80,3,10);
 insert into Detalle values (2020,1);
 insert into Detalle values (3030,2);
 insert into Detalle values (4040,5);
+
+
+
+
+
+SELECT L_Analisis.id, L_Analisis.nombre, L_Analisis.precio 
+FROM L_Analisis
+ORDER BY ID DESC
+
+SELECT inventario.id, inventario.nombre, inventario.cantidad, persona.nombre 
+FROM Inventario,Laboratorista,Persona 
+where id_lb = id_laboratorista  and id_laboratorista =ci 
+ORDER BY ID DESC
+
+SELECT laboratorista.id_laboratorista, persona.nombre, persona.apellidop, persona.apellidom, persona.telefono, persona.fecha_nacimiento, especialida_med.nombre_esp
+FROM Laboratorista,Persona, Especialida_Med
+where id = id_esp_med  and id_laboratorista =ci 
+ORDER BY ID_Laboratorista DESC
+
+
+SELECT personal.id_persona, persona.nombre, persona.apellidop, persona.apellidom, persona.telefono, persona.fecha_nacimiento, cargo.nombre
+FROM Personal,Persona, Cargo
+where id_cargo = id_crg  and id_persona =ci 
+ORDER BY ID_Persona DESC
+
+SELECT paciente.id_paciente, persona.nombre, persona.apellidop, persona.apellidom, persona.telefono, persona.fecha_nacimiento, seguro.nombre_seguro
+FROM Paciente,Persona,Seguro 
+where id_paciente =ci and nro_seguro = nro_sg
+ORDER BY ID_Paciente DESC

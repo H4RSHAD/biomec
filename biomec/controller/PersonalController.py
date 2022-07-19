@@ -1,5 +1,5 @@
 from ..models.entidades.Personal import Personal
-from ..database.db_entidades import personal_db
+from ..database import personal_db
 
 def create(personal: Personal)->Personal:
     # comment: 
@@ -12,6 +12,11 @@ def update(personal: Personal)->Personal:
 # end def
 
 def delete(personal: Personal)->Personal:
-    # comment: 
+    # comment:
+    print("*************************hola***********************")
     return personal_db.delete(personal)
+# end def
+def list():
+    # comment:
+    return personal_db.list_all()
 # end def

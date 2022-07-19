@@ -15,5 +15,7 @@ def delete(paciente: Paciente)->Paciente:
     # comment: 
     return paciente_db.delete(paciente)
 # end def
-
-
+def list():
+    # comment:
+    return paciente_db.list_all()
+# end def

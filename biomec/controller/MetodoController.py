@@ -1,5 +1,5 @@
 from ..models.entidades.Metodo import Metodo
-from ..database.db_entidades import metodo_db
+from ..database import metodo_db
 
 def create(metodo: Metodo)->Metodo:
     # comment: 
@@ -14,4 +14,8 @@ def update(metodo: Metodo)->Metodo:
 def delete(metodo: Metodo)->Metodo:
     # comment: 
     return metodo_db.delete(metodo)
+# end def
+def list():
+    # comment:
+    return metodo_db.list_all() 
 # end def

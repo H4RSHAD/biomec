@@ -22,11 +22,11 @@ def privilegio():
                         "description": "Bienvenido(a) "+ session['username'],
                         "Nombre": session['username'],
                         "tipo": "Administrador",
-                        "titulo": "Gestionar Seguro",
-                        "titulo_usuario":"Seguros Asociados al Laboratorio"
+                        "titulo": "Gestionar Privilegios",
+                       # "titulo_usuario":"Seguros Asociados al Laboratorio"
                 }
  
-        cargo_lista = UserController.list()    #! implementar el modelo seguro
-        return render_template("usuario/admin/privilegio.html", **parametros, items = cargo_lista)
+        privilegio_lista = PrivilegioController.list()    #! implementar el modelo seguro
+        return render_template("usuario/admin/privilegio.html", **parametros, items = privilegio_lista)
 
     return redirect(url_for('tipo.login'))

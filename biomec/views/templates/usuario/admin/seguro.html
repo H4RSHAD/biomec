@@ -20,7 +20,7 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
           <span>
-            <a href="../principal/">
+            <a href="../tipo/admin/.">
               <img
                 alt="image"
                 src="{{ url_for('static', filename='img/biomec.png') }}"
@@ -63,10 +63,10 @@
           <li>
             <a href="{{ url_for('tipo.usuario') }}">Visualizar Usuarios</a>
           </li>
-          <li><a href="../medico/">Gestionar Medico</a></li>
+          <li><a href="../laboratorista/">Gestionar Medico</a></li>
           <li><a href="../especialidad">Gestionar Especialidad</a></li>
-          <li><a href="../privilegios/">Privilegios</a></li>
-          <li><a href="../gestionarPaciente/">Gestionar Paciente</a></li>
+          <li><a href="../privilegio/">Privilegios</a></li>
+          <li><a href="../paciente/">Gestionar Paciente</a></li>
         </ul>
       </li>
 
@@ -77,11 +77,11 @@
           <span class="fa arrow"></span
         ></a>
         <ul class="nav nav-second-level collapse">
-          <li><a href="../precio/">Gestionar Precio de Análisis</a></li>
-          <li><a href="../analisis/">GESTIONAR ANALISIS</a></li>
+          <!-- <li><a href="../precio/">Gestionar Precio de Análisis</a></li> -->
+          <li><a href="../l_analisis/">GESTIONAR ANALISIS</a></li>
           <li><a href="../muestra">Gestionar Muestra</a></li>
           <li><a href="../metodo">Gestionar Metodo</a></li>
-          <li><a href="../grupoAnalisis">Gestionar Grupo de Análisis</a></li>
+          <li><a href="../g_analisis">Gestionar Grupo de Análisis</a></li>
         </ul>
       </li>
 
@@ -386,7 +386,7 @@
                 <h5>Modificar los datos</h5>
               </div>
               <form
-                action="javascript: fn_modificar();"
+                action="javascript: (fn_modificar);"
                 method="post"
                 id="frm_modif_seguro"
               >
@@ -468,10 +468,7 @@
               Editar Seguro <br />
               (Click Aqui)
             </th>
-            <th>
-              Editar Precio <br />
-              (Click Aqui)
-            </th>
+
             <th>
               <a href="javascript: fn_mostrar_frm_agregar();"
                 ><img
@@ -486,11 +483,11 @@
           <!-- Aqui las filas o valores de la tabla    -->
           {% for item in items %}
           <tr></tr>          
-          <td>{{item['id']}}</td>
-          <td>{{item['nombre']}}</td>
+          <td>{{item['nro_seguro']}}</td>
+          <td>{{item['nombre_seguro']}}</td>
           <td>
             <a
-              href="javascript: fn_mostrar_frm_modificar({{item['id']}},{{item['nombre']}});"
+              href="javascript: fn_mostrar_frm_modificar({{item['nro_seguro']}},{{item['nombre_seguro']}});"
             >
               <img
                 src="{{ url_for('static', filename='extras/ico/page_edit.png') }}"
@@ -499,17 +496,7 @@
           </td>
 
           <td>
-            <a
-              href="javascript: fn_SeguroAnalisis({{item['id']}},{{item['nombre']}});"
-            >
-              <img
-                src="{{ url_for('static', filename='extras/ico/book.png') }}"
-                width="25px"
-                height="25px"
-            /></a>
-          </td>
-          <td>
-            <a href="javascript: fn_eliminar({{item['id']}});">
+            <a href="javascript: fn_eliminar({{item['nro_seguro']}});">
               <img
                 src="{{ url_for('static', filename='extras/ico/delete.png') }}"
                 style="width: 25px; height: 25px"

@@ -26,11 +26,11 @@ def paciente():
                         "description": "Bienvenido(a) "+ session['username'],
                         "Nombre": session['username'],
                         "tipo": "Administrador",
-                        "titulo": "Registrar Personal del laboratorio",
+                        "titulo": "Gestionar Paciente",
                         "titulo_usuario":"Listado del personal de la Empresa"
                 }
  
-        personas_lista = PersonaController.list()    #! implementar el modelo personal
+        personas_lista = PacienteController.list()    #! implementar el modelo personal
         print(personas_lista)
         return render_template("usuario/admin/paciente.html", **parametros, items = personas_lista)
 

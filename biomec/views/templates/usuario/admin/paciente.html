@@ -20,7 +20,7 @@
       <li class="nav-header">
         <div class="dropdown profile-element">
           <span>
-            <a href="../principal/">
+            <a href="../tipo/admin">
               <img
                 alt="image"
                 src="{{ url_for('static', filename='img/biomec.png') }}"
@@ -63,9 +63,9 @@
           <li>
             <a href="{{ url_for('tipo.usuario') }}">Visualizar Usuarios</a>
           </li>
-          <li><a href="../medico/">Gestionar Medico</a></li>
+          <li><a href="../laboratorista/">Gestionar Medico</a></li>
           <li><a href="../especialidad">Gestionar Especialidad</a></li>
-          <li><a href="../privilegios/">Privilegios</a></li>
+          <li><a href="../privilegio/">Privilegios</a></li>
           <li><a href="../paciente/">Gestionar Paciente</a></li>
         </ul>
       </li>
@@ -77,11 +77,11 @@
           <span class="fa arrow"></span
         ></a>
         <ul class="nav nav-second-level collapse">
-          <li><a href="../precio/">Gestionar Precio de Análisis</a></li>
-          <li><a href="../analisis/">GESTIONAR ANALISIS</a></li>
+          <!-- <li><a href="../precio/">Gestionar Precio de Análisis</a></li> -->
+          <li><a href="../l_analisis/">GESTIONAR ANALISIS</a></li>
           <li><a href="../muestra">Gestionar Muestra</a></li>
           <li><a href="../metodo">Gestionar Metodo</a></li>
-          <li><a href="../grupoAnalisis">Gestionar Grupo de Análisis</a></li>
+          <li><a href="../g_analisis">Gestionar Grupo de Análisis</a></li>
         </ul>
       </li>
 
@@ -199,7 +199,7 @@
               </div>
             </div>
             <div class="ibox-content">
-              <div class="row">
+<!--               <div class="row">
                 <form
                   method="get"
                   action="javascript: fn_buscar()"
@@ -296,7 +296,7 @@
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> -->
             </div>
 
 
@@ -306,11 +306,13 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Nombre Completo</th>
-                      <th>Direccion</th>
-                      <th>Correo Electronico</th>
+                      <th>ID</th>
+                      <th>Nombre(s)</th>
+                      <th>Apellido Paterno</th>
+                      <th>Apellido Materno</th>
                       <th>Telefono</th>
+                      <th>Fecha</th>
+                      <th>Nombre de Seguro</th>
                       <th></th>
                       <th style="text-align: center" width="16px">
                         Agregar (Cargo)
@@ -327,11 +329,13 @@
                   <tbody>
                     {% for item in items %}
                     <tr></tr>          
-                    <td>{{item['ci']}}</td>
-                    <td>{{item['nombre']}}</td>
-                    <td>{{item['apellidoP']}}</td>
-                    <td>{{item['email']}}</td>
-                    <td>{{item['telefono']}}</td>
+                    <td>{{item['ID_Paciente']}}</td>
+                    <td>{{item['Nombre']}}</td>
+                    <td>{{item['ApellidoP']}}</td>
+                    <td>{{item['ApellidoM']}}</td>
+                    <td>{{item['Telefono']}}</td>
+                    <td>{{item['Fecha_Nacimiento']}}</td>
+                    <td>{{item['Nombre_Seguro']}}</td>
 
                       <td>
                         <a
@@ -466,7 +470,6 @@
                                 name="txtP_Ap"
                                 type="text"
                                 id="txtP_Ap"
-                                onkeypress="return validar_espacio(event)"
                                 class="form-control"
                                 size="16"
                                 placeholder="Apellido Paterno"
@@ -503,7 +506,6 @@
                                 name="txtCelular"
                                 type="text"
                                 id="txtCelular"
-                                onkeypress="return validar_numero(event)"
                                 class="form-control"
                                 size="16"
                                 placeholder="# Celular"
@@ -642,7 +644,6 @@
                                 name="txtP_Ap_modif"
                                 type="text"
                                 id="txtP_Ap_modif"
-                                onkeypress="return validar_espacio(event)"
                                 class="form-control"
                                 size="16"
                                 placeholder="Apellido Paterno"
@@ -677,7 +678,6 @@
                                 name="txtCelular_modif"
                                 type="text"
                                 id="txtCelular_modif"
-                                onkeypress="return validar_numero(event)"
                                 class="form-control"
                                 size="16"
                                 placeholder="# Celular"

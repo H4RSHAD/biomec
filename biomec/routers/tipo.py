@@ -94,6 +94,25 @@ def admin():
         return render_template("usuario/admin/dashboard_admin.html",**parametros)
     return redirect(url_for('tipo.login'))
 
+@tipo_scope.route('/recepcionista', methods=['GET'])
+
+def recepcioista():
+    if 'Esta_logeado' in session:
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista"
+        }
+
+        usuarios_lista = UserController.list()
+
+        #return render_template("usuario/admin/dashboard_admin.html", **parametros, items = usuarios_lista)
+        #return render_template("base/navbar.html")
+        return render_template("usuario/personal/dashboard_recepcionista.html",**parametros)
+    return redirect(url_for('tipo.login'))
+
 @tipo_scope.route('/usuario', methods=['GET']) 
 def usuario():
 
