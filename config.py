@@ -4,7 +4,6 @@ from dotenv import load_dotenv  # Instalar con pip install python-dotenv
 load_dotenv()                   # Cargar todo el cotenido de .env en variables de entorno
 
 class Config:
-
     # Trabajar en la nube voladora. Estamos usando Heroku, es una plataforma como servicio en la nube 
     SERVER_NAME = "biomec.herokuapp.com" # Esto es el nombre del servidor, para mostrar ONLINE 
     DEBUG = True
@@ -13,8 +12,8 @@ class Config:
     # No compartir los datos de la base de datos para proyectos rentables
     DB_HOST = "ec2-44-196-174-238.compute-1.amazonaws.com"
     DB_NAME = "degnorh0nb7ntq"
-    DB_USER = "postgres"
-    DB_PASS = "0000"
+    DB_USER = "qaoqynpkztebra"
+    DB_PASS = "7ad63486016b69a2055755ad4b307b79a7711fd154d10985c4f14aea1103078a"
     DB_PORT = "5432"
     '''
     # ---- Trabajar de manera Local ----
