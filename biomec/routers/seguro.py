@@ -30,6 +30,25 @@ def seguro():
     return redirect(url_for('tipo.login'))
 
 
+@seguro_scope.route('/srecepcionista', methods=['GET'])
+def srecepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Gestionar Seguro",
+                        "titulo_usuario":"Seguros Asociados al Laboratorio"
+                }
+        seguro_lista = SeguroController.list()
+        #cargo_lista = UserController.list()    #! implementar el modelo seguro
+        return render_template("usuario/personal/seguro.html", **parametros, items = seguro_lista)
+
+    return redirect(url_for('tipo.login'))
+
 
 #----------------------LOGIN------------------------------
 @seguro_scope.route('/gestionar_seguro', methods=['GET','POST'])

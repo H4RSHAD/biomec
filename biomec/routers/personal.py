@@ -13,15 +13,9 @@ from ..models.entidades.Personal import Personal
 from ..models.entidades.Laboratorista import Laboratorista
 
 from ..routers.tipo import session # estoy importando la variable global donde se guarda la session del usuario que ingreso al sistema
-
 personal_scope = Blueprint('personal',__name__)
 
 #realizar la vista del Inicio o Home "template"
-@personal_scope.route('/personal/delete/<int:per>', methods=['GET', 'POST'])
-def delete(per):
-        if request.method =='GET':
-                print(per)
-
 @personal_scope.route('/', methods=['GET'])
 def personal():
 
@@ -39,5 +33,46 @@ def personal():
         personas_lista = PersonalController.list()    #! implementar el modelo personal
         print(personas_lista)
         return render_template("usuario/admin/personal.html", **parametros, items = personas_lista)
+
+    return redirect(url_for('tipo.login'))
+
+@personal_scope.route('/', methods=['GET'])
+def personal_recepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Registrar Personal del laboratorio",
+                        "titulo_usuario":"Listado del personal de la Empresa"
+                }
+ 
+        personas_lista = PersonalController.list()    #! implementar el modelo personal
+        print(personas_lista)
+        return render_template("usuario/personal/personal.html", **parametros, items = personas_lista)
+
+    return redirect(url_for('tipo.login'))
+
+
+@personal_scope.route('/precepcionista', methods=['GET'])
+def precepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Registrar Personal del laboratorio",
+                        "titulo_usuario":"Listado del personal de la Empresa"
+                }
+ 
+        personas_lista = PersonalController.list()    #! implementar el modelo personal
+        print(personas_lista)
+        return render_template("usuario/personal/personal.html", **parametros, items = personas_lista)
 
     return redirect(url_for('tipo.login'))

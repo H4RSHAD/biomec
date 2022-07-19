@@ -94,24 +94,10 @@ def admin():
         return render_template("usuario/admin/dashboard_admin.html",**parametros)
     return redirect(url_for('tipo.login'))
 
-@tipo_scope.route('/recepcionista', methods=['GET'])
 
-def recepcioista():
-    if 'Esta_logeado' in session:
 
-                # Aqui ponemos Titulo y descripcion 
-        parametros = { "title": "Biomec virtual",
-                        "description": "Bienvenido(a) "+ session['username'],
-                        "Nombre": session['username'],
-                        "tipo": "Recepcionista"
-        }
 
-        usuarios_lista = UserController.list()
 
-        #return render_template("usuario/admin/dashboard_admin.html", **parametros, items = usuarios_lista)
-        #return render_template("base/navbar.html")
-        return render_template("usuario/personal/dashboard_recepcionista.html",**parametros)
-    return redirect(url_for('tipo.login'))
 
 @tipo_scope.route('/usuario', methods=['GET']) 
 def usuario():
@@ -191,36 +177,47 @@ def tecnico():
 
 
 #----------------------Recepcionista------------------------------
-@tipo_scope.route('/recepcionista', methods=['GET', 'POST'])
+@tipo_scope.route('/recepcionista', methods=['GET'])
+
 def recepcionista():
-    if 'Esta_logeado' in session:   
-        # Aqui ponemos Titulo y descripcion 
-        parametros = { "title": "Bienvenido(a): "+ session['username'] +" al Dasboard de Personal",
-                        "description": " Tu Laboratorio clinico a tu alcanze"
-        }
-
-        personas_lista = PersonaController.list()
-        return render_template("usuario/personal/dashboard_recepcionista.html", **parametros, items = personas_lista)
-
-    return redirect(url_for('tipo.login'))
-
-
-
-#----------------------Laboratorista------------------------------
-@tipo_scope.route('/bioquimico', methods=['GET'])
-
-def bioquimico():
     if 'Esta_logeado' in session:
 
                 # Aqui ponemos Titulo y descripcion 
         parametros = { "title": "Biomec virtual",
                         "description": "Bienvenido(a) "+ session['username'],
                         "Nombre": session['username'],
-                        "tipo": "Administrador"
+                        "tipo": "Recepcionista"
         }
-        return render_template("usuario/Laboratorista/dashboard_laboratorista.html",**parametros)
+
+        usuarios_lista = UserController.list()
+
+        #return render_template("usuario/admin/dashboard_admin.html", **parametros, items = usuarios_lista)
+        #return render_template("base/navbar.html")
+        return render_template("usuario/personal/dashboard_recepcionista.html",**parametros)
     return redirect(url_for('tipo.login'))
 
+
+
+
+#----------------------Laboratorista------------------------------
+
+@tipo_scope.route('/laboratorista', methods=['GET'])
+def laboratorista():
+    if 'Esta_logeado' in session:
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Bioquimico"
+        }
+
+        usuarios_lista = UserController.list()
+
+        #return render_template("usuario/admin/dashboard_admin.html", **parametros, items = usuarios_lista)
+        #return render_template("base/navbar.html")
+        return render_template("usuario/Laboratorista/dashboard_laboratorista.html",**parametros)
+    return redirect(url_for('tipo.login'))
 
 #----------------------Paciente------------------------------
 @tipo_scope.route('/paciente', methods=['GET'])

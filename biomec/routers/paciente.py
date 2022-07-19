@@ -35,3 +35,45 @@ def paciente():
         return render_template("usuario/admin/paciente.html", **parametros, items = personas_lista)
 
     return redirect(url_for('tipo.login'))
+
+
+@paciente_scope.route('/', methods=['GET'])
+def paciente_recepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Gestionar Paciente",
+                        "titulo_usuario":"Listado del personal de la Empresa"
+                }
+ 
+        personas_lista = PacienteController.list()    #! implementar el modelo personal
+        print(personas_lista)
+        return render_template("usuario/personal/paciente.html", **parametros, items = personas_lista)
+
+    return redirect(url_for('tipo.login'))
+
+    
+@paciente_scope.route('/parecepcionista', methods=['GET'])
+def parecepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Gestionar Paciente",
+                        "titulo_usuario":"Listado del personal de la Empresa"
+                }
+ 
+        personas_lista = PacienteController.list()    #! implementar el modelo personal
+        print(personas_lista)
+        return render_template("usuario/personal/paciente.html", **parametros, items = personas_lista)
+
+    return redirect(url_for('tipo.login'))

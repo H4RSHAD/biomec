@@ -30,3 +30,24 @@ def metodo():
         return render_template("usuario/admin/metodo.html", **parametros, items = metodo_listar)
 
     return redirect(url_for('tipo.login'))
+
+
+@metodo_scope.route('/', methods=['GET'])
+def metodo_recepcionista():
+
+    if session['Esta_logeado']:  # obtengo el dato de la session que se almaceno en la ruta tipo.login
+
+                # Aqui ponemos Titulo y descripcion 
+        parametros = { "title": "Biomec virtual",
+                        "description": "Bienvenido(a) "+ session['username'],
+                        "Nombre": session['username'],
+                        "tipo": "Recepcionista",
+                        "titulo": "Gestionar Metodo de analisis",
+                       # "titulo_usuario":"Seguros Asociados al Laboratorio"
+                }
+ 
+        metodo_listar = MetodoController.list()    #! implementar el modelo seguro
+        return render_template("usuario/personal/metodo.html", **parametros, items = metodo_listar)
+
+    return redirect(url_for('tipo.login'))
+    
