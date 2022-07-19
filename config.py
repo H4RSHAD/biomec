@@ -11,7 +11,7 @@ class Config:
     # IMPORTANTE
     # Tener instalado el posgretsql para poder conectarnos a la base de datos de Heroku y asi crear las tablas
     # No compartir los datos de la base de datos para proyectos rentables
-    '''DB_HOST = "ec2-44-196-174-238.compute-1.amazonaws.com"
+    DB_HOST = "ec2-44-196-174-238.compute-1.amazonaws.com"
     DB_NAME = "degnorh0nb7ntq"
     DB_USER = "postgres"
     DB_PASS = "0000"
@@ -25,6 +25,7 @@ class Config:
     DB_USER = "postgres"
     DB_PASS = "0000"
     DB_PORT = "5432"
+    '''
     
 
     DB_TOKEN = os.environ.get("DB_TOKEN","") #Para encriptar la DB
